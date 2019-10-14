@@ -27,12 +27,12 @@
 		        </ul>
 		       <ul class="navbar-nav my-auto">
 		          <li class="nav-item active">
-		            <a class="nav-link" href="">Link</a>
+		            <a class="nav-link" href="<?php echo base_url()?>posts/create">Create</a>
 		          </li>
 		        </ul>
 		      </div>	
 		</div>
     </nav>
-
+    
     <div class="container">
 
