@@ -1,1 +1,1 @@
-This is About
+<h1><?= $title?></h1>
