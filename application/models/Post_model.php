@@ -18,7 +18,6 @@ class Post_model extends CI_model
 	{
 		$this->db->where('slug', $param);
 		$result = $this->db->get('posts');
-
 		return $result->row_array();
 	}
 
@@ -26,11 +25,29 @@ class Post_model extends CI_model
 	{
 		$data = array(
 			'title' => $this->input->post('title'),
-			'slug' => url_title($this->input->post('title'), '-', true),
+			'slug' => url_title(strtolower($this->input->post('title'))),
 			'body' => $this->input->post('body')
 		);
 
 		return $this->db->insert('posts', $data); // insert query in mysql
+	}
+
+	public function update_posts()
+	{
+		$data = array(
+			'title' => $this->input->post('title'),
+			'slug' => url_title(strtolower($this->input->post('title'))),
+			'body' => $this->input->post('body')
+		);
+
+		$this->db->where('id', $this->input->post('id'));
+		
+		$response = array(
+			'updated' => $updated = $this->db->update('posts', $data),
+			'slug' => url_title(strtolower($this->input->post('title')))
+		);
+
+		return $response;
 	}
 
 	public function delete_posts($param)
@@ -40,15 +57,11 @@ class Post_model extends CI_model
 		return true;
 	}
 
-	public function update_post()
-	{
-		$data = array(
-			'title' => $this->input->post('title'),
-			'slug' => $this->input->post('title'),
-			'body' => $this->input->post('body')
-		);
-
-		$this->db->where('id', $this->input->post('id'));
-		return $this->db->update('posts', $data);
+	public function test_data()
+	{	
+		$this->db->select('title');
+		$this->db->from('posts');
+		$result = $this->db->get();
+		return $result->result();
 	}
 }

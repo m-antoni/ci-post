@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>CI Blog</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-4.3.1.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -33,6 +33,6 @@
 		      </div>	
 		</div>
     </nav>
-    
+
     <div class="container">
 
