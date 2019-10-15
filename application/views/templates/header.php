@@ -15,13 +15,13 @@
 
 		      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
 		        <ul class="navbar-nav mr-auto">
-		          <li class="nav-item active">
+		          <li class="nav-item">
 		            <a class="nav-link" href="<?php echo base_url(); ?>home">Home</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href="<?php echo base_url(); ?>about">About</a>
 		          </li>
-		          <li class="nav-item active">
+		          <li class="nav-item">
 		            <a class="nav-link" href="<?php echo base_url();?>posts">Blog</a>
 		          </li>
 		        </ul>
@@ -33,6 +33,6 @@
 		      </div>	
 		</div>
     </nav>
-
+    
     <div class="container">
 

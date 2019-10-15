@@ -59,7 +59,7 @@ class Posts extends CI_Controller
 		$this->form_validation->set_rules('body','Body','required');
 
 		// check if the validation doesn't run
-		if($this->form_validation->run() == FALSE){
+		if($this->form_validation->run() == FALSE) {
 
 			$data['title'] = 'Create Posts';
 
@@ -68,7 +68,7 @@ class Posts extends CI_Controller
 			$this->load->view('/posts/create', $data);
 			$this->load->view('/templates/footer');
 
-		}else{
+		} else {
 			// insert data to model
 			$this->Post_model->insert_posts();
 			$this->session->set_flashdata('create_post', 'Post Created Successfully');
@@ -97,7 +97,7 @@ class Posts extends CI_Controller
 		$this->form_validation->set_rules('title', 'Title', 'required|max_length[50]');
 		$this->form_validation->set_rules('body', 'Body', 'required');
 
-
+		// check if the validation doesn't run
 		if ($this->form_validation->run() == FALSE) {
 			
 			$data['post'] = $this->Post_model->get_posts_single($slug);
@@ -118,7 +118,7 @@ class Posts extends CI_Controller
 			// update the data 
 			$updated['updated'] = $this->Post_model->update_posts();
 			$this->session->set_flashdata('updated_posts', 'Post has been Updated Successfully');
-			
+			// redirect to single view and get the new slug data
 			redirect(base_url() . 'posts/' . $updated['updated']['slug']);
 		}
 	}
